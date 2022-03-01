@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H8 Model Deployment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <div class="form">
+        <img src="https://jsday.id/images/sponsors/Logo-Hacktiv8.png" height="100px"/>
+        <h1>Hacktiv8 Final Project 4</h1>
+        <h6>Faradilla Ardiyani</h6>
+        <p>Earthquake Clustering</p>
+        <form action="{{ url_for('predict') }}" method="post">
+            <div class="form-style-agile">
+            <label>DEPTH</label>
+            <div class="pom-agile">
+                <input placeholder="Kedalaman Gempa" name="depth" type="text" required="">
+            </div>
+            <label>MAGNITUDO</label>
+            <div class="pom-agile">
+                <input placeholder="Magnitudo" name="mag" type="text" required="">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Prediksi</button>
+        </form>
+
+
+        <p class="message">{{ prediction_text }}</p>
+        <p class="message">
+            Keterangan Klaster 
+        </p>
+        <p class="message">
+            Klaster 0 : Kedalaman gempa dalam, magnitudo sedang diantara cluster 1 dan 2
+        </p>
+        <p class="message">
+                Klaster 1 : Kedalaman gempa sedang, magnitudo paling besar
+        </p> 
+        <p class="message">
+            Klaster 2 : Kedalaman gempa dangkal, magnitudo paling kecil
+        </p>
+    </div>
+
+</body>
+</html>
